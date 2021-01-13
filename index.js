@@ -628,7 +628,7 @@ client.on('group-participants-update', async (anu) => {
 							.save(ran)
 							} else {
 						reply(`Kirim gambar dengan caption ${prefix}sticker atau reply/tag gambar`)
-					}
+					}*/
 					break
 				case 'getses':
             	if (!isOwner) return reply(mess.only.ownerB)
