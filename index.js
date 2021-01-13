@@ -448,11 +448,11 @@ client.on('group-participants-update', async (anu) => {
 					break
 					case 'txtwolf':
 					var gh = body.slice(9)
-					var gi11 = gh.split("|")[0];
-					var gi12 = gh.split("|")[1];
+					var gil1 = gh.split("|")[0];
+					var gil2 = gh.split("|")[1];
 					if (args.length < 1) return reply('Teksnya mana um')
 					reply(mess.wait)
-					baff = await getBuffer(`https://docs-jojo.herokuapp.com/api/wolf?text1=${gi11}&text2=${gi12}`, {method: 'get'})
+					baff = await getBuffer(`https://docs-jojo.herokuapp.com/api/wolf?text1=${gil1}&text2=${gil2}`, {method: 'get'})
 					client.sendMessage(from, baff, image, {quoted: mek})
 					break
                 case 'truth':
