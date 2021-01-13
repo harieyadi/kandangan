@@ -447,9 +447,9 @@ client.on('group-participants-update', async (anu) => {
 					client.sendMessage(from, buffer, image, {quoted: mek})
 					break
 					case 'txtwolf':
-					var gi = body.slice(9)
-					var gi11 = gi.split("|")[0];
-					var gi12 = gi.split("|")[1];
+					var gh = body.slice(9)
+					var gi11 = gh.split("|")[0];
+					var gi12 = gh.split("|")[1];
 					if (args.length < 1) return reply('Teksnya mana um')
 					reply(mess.wait)
 					anu = await fetchJson(`https://docs-jojo.herokuapp.com/api/wolf?text1=${gi11}&text2=${gi12}`, {method: 'get'})
