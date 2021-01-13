@@ -452,8 +452,7 @@ client.on('group-participants-update', async (anu) => {
 					var gi12 = gh.split("|")[1];
 					if (args.length < 1) return reply('Teksnya mana um')
 					reply(mess.wait)
-					anu = await fetchJson(`https://docs-jojo.herokuapp.com/api/wolf?text1=${gi11}&text2=${gi12}`, {method: 'get'})
-					buffer = await getBuffer(anu.result)
+					buff = await getBuffer(`https://docs-jojo.herokuapp.com/api/wolf?text1=${gi11}&text2=${gi12}`, {method: 'get'})
 					client.sendMessage(from, buffer, image, {quoted: mek})
 					break
                 case 'truth':
