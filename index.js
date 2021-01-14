@@ -342,6 +342,16 @@ client.on('group-participants-update', async (anu) => {
 					teks += `𝗧𝗼𝘁𝗮𝗹 : ${blocked.length}`
 					client.sendMessage(from, teks.trim(), extendedText, {quoted: mek, contextInfo: {"mentionedJid": blocked}})
 					break
+					case 'ninjalogo':
+                      if (args.length < 1) return reply('Teks nya mana?')
+                      gh = body.slice(11)
+                      gl1 = gh.split("|")[0];
+                      gl2 = gh.split("|")[1];
+                      reply(mess.wait)
+                      anu = await fetchJson(`https://tobz-api.herokuapp.com/api/textpro?theme=ninjalogo&text1=${gl1}&text2=${gl2}&apikey=BotWeA`, {method: 'get'})
+                      buff = await getBuffer(anu.result)
+                      client.sendMessage(from, buff, image, {quoted: mek})
+                      break
                 case 'hidetag':
 					if (!isGroup) return reply(mess.only.group)
 					if (!isGroupAdmins) return reply(mess.only.admin)
