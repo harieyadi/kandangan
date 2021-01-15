@@ -483,9 +483,9 @@ client.on('group-participants-update', async (anu) => {
 					client.sendMessage(from, pok, image, { quoted: mek, caption: `𝐏𝐈𝐍𝐓𝐄𝐑𝐄𝐒𝐓\n\*Hasil Pencarian* : *${body.slice(11)}*`})
 					break
 					case 'glitch':
-                    gh = body.slice(8)
-                    teks1 = gh.split("|")[0];
-                    teks2 = gh.split("|")[1];
+                   var gh = body.slice(8)
+                   var teks1 = gh.split("|")[0];
+                   var teks2 = gh.split("|")[1];
                     data = await fetchJson(`https://tobz-api.herokuapp.com/api/textpro?theme=glitch&text1=${teks1}&text2=${teks2}&apikey=BotWeA`, {method: 'get'})
                     hasil = await getBuffer(data.result)
                     client.sendMessage(from, hasil, image, {quoted: mek, caption: 'neh...'})
@@ -845,9 +845,9 @@ client.on('group-participants-update', async (anu) => {
                if (!isGroup) return reply(mess.only.group)
                 arg = body.substring(body.indexOf(' ') + 1)
 				isi = arg.split(' |')[0] 
-				pesan = arg.split('|')[1] 
+				pesan1 = arg.split('|')[1] 
 				pesan2 = arg.split('|')[2] 
-                reply(pesan, isi, pesan2)
+                reply(pesan1, isi, pesan2)
                 break
                  case 'linkgc':
 				    if (!isGroup) return reply(mess.only.group)
