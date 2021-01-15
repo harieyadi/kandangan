@@ -475,12 +475,12 @@ client.on('group-participants-update', async (anu) => {
                                         break
 					case 'images':
 					client.updatePresence(from, Presence.composing) 
-					data = await fetchJson(`https://api.fdci.se/rep.php?gambar=${body.slice(14)}`, {method: 'get'})
+					data = await fetchJson(`https://api.fdci.se/rep.php?gambar=${body.slice(10)}`, {method: 'get'})
 					reply(mess.wait)
 					n = JSON.parse(JSON.stringify(data));
 					nimek =  n[Math.floor(Math.random() * n.length)];
 					pok = await getBuffer(nimek)
-					client.sendMessage(from, pok, image, { quoted: mek, caption: `𝐏𝐈𝐍𝐓𝐄𝐑𝐄𝐒𝐓\n\*Hasil Pencarian* : *${body.slice(14)}*`})
+					client.sendMessage(from, pok, image, { quoted: mek, caption: `𝐏𝐈𝐍𝐓𝐄𝐑𝐄𝐒𝐓\n\*Hasil Pencarian* : *${body.slice(10)}*`})
 					break
 					case 'glitch':
                    var gh = body.slice(8)
