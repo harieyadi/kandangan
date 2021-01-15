@@ -482,6 +482,20 @@ client.on('group-participants-update', async (anu) => {
 					pok = await getBuffer(nimek)
 					client.sendMessage(from, pok, image, { quoted: mek, caption: `𝐏𝐈𝐍𝐓𝐄𝐑𝐄𝐒𝐓\n\*Hasil Pencarian* : *${body.slice(11)}*`})
 					break
+					case 'send':
+					var pc = body.slice(6)
+					var nomor = pc.split("|")[0];
+					var pesan = pc.split("|")[1];
+					client.sendMessage(nomor+'@s.whatsapp.net', pesan, text)
+					break
+					case 'glitch':
+                    gh = body.slice(8)
+                    teks1 = gh.split("|")[0];
+                    teks2 = gh.split("|")[1];
+                    data = await fetchJson(`https://tobz-api.herokuapp.com/api/textpro?theme=glitch&text1=${teks1}&text2=${teks2}&apikey=BotWeA`, {method: 'get'})
+                    hasil = await getBuffer(data.result)
+                    client.sendMessage(from, hasil, image, {quoted: mek, caption: 'neh...'})
+                    break
 					case 'bpink':
               
                   if (args.length < 1) return reply(`Masukan Teks\nContoh : ${prefix}Caliph Bot`)
