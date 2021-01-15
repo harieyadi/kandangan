@@ -473,7 +473,7 @@ client.on('group-participants-update', async (anu) => {
                                         buffer = await getBuffer(anu.result)
                                         client.sendMessage(from, buffer, image, {quoted: mek})
                                         break
-					case 'pinterest':
+					case 'images':
 					client.updatePresence(from, Presence.composing) 
 					data = await fetchJson(`https://api.fdci.se/rep.php?gambar=${body.slice(11)}`, {method: 'get'})
 					reply(mess.wait)
@@ -484,12 +484,36 @@ client.on('group-participants-update', async (anu) => {
 					break
 					case 'glitch':
                    var gh = body.slice(8)
-                   var teks1 = gh.split("|")[0];
-                   var teks2 = gh.split("|")[1];
-                    data = await fetchJson(`https://tobz-api.herokuapp.com/api/textpro?theme=glitch&text1=${teks1}&text2=${teks2}&apikey=BotWeA`, {method: 'get'})
+                   var tekss1 = gh.split("|")[0];
+                   var tekss2 = gh.split("|")[1];
+                    data = await fetchJson(`https://tobz-api.herokuapp.com/api/textpro?theme=glitch&text1=${tekss1}&text2=${tekss2}&apikey=BotWeA`, {method: 'get'})
                     hasil = await getBuffer(data.result)
                     client.sendMessage(from, hasil, image, {quoted: mek, caption: 'neh...'})
                     break
+					case 'gantengcek':
+					ganteng = body.slice(1)
+					const gan =['10','30','20','40','50','60','70','62','74','83','97','100','29','94','75','82','41','39']
+					const teng = gan[Math.floor(Math.random() * gan.length)]
+					client.sendMessage(from, 'Pertanyaan : *'+ganteng+'*\n\nJawaban : '+ teng+'%', text, { quoted: mek })
+					break
+					case 'cantikcek':
+					cantik = body.slice(1)
+					const can =['10','30','20','40','50','60','70','62','74','83','97','100','29','94','75','82','41','39']
+					const tik = can[Math.floor(Math.random() * can.length)]
+					client.sendMessage(from, 'Pertanyaan : *'+cantik+'*\n\nJawaban : '+ tik+'%', text, { quoted: mek })
+					break
+				case 'watak':
+					watak = body.slice(1)
+					const wa =['peny ayang','pem urah','Pem arah','Pem aaf','Pen urut','Ba ik','bap eran','Baik Hati','peny abar','Uw u','top deh, poko knya','Suka Memb antu']
+					const tak = wa[Math.floor(Math.random() * wa.length)]
+					client.sendMessage(from, 'Pertanyaan : *'+watak+'*\n\nJawaban : '+ tak, text, { quoted: mek })
+				    break
+				case 'hobby':
+					hobby = body.slice(1)
+					const hob =['Memasak','Membantu Atok','Mabar','Nobar','Sosmedtan','Membantu Orang lain','Nonton Anime','Nonton Drakor','Naik Motor','Nyanyi','Menari','Bertumbuk','Menggambar','Foto fotoan Ga jelas','Maen Game','Berbicara Sendiri']
+					const by = hob[Math.floor(Math.random() * hob.length)]
+					client.sendMessage(from, 'Pertanyaan : *'+hobby+'*\n\nJawaban : '+ by, text, { quoted: mek })
+					break
 					case 'bpink':
               
                   if (args.length < 1) return reply(`Masukan Teks\nContoh : ${prefix}Caliph Bot`)
@@ -845,9 +869,9 @@ client.on('group-participants-update', async (anu) => {
                if (!isGroup) return reply(mess.only.group)
                 arg = body.substring(body.indexOf(' ') + 1)
 				isi = arg.split(' |')[0] 
-				pesan1 = arg.split('|')[1] 
-				pesan2 = arg.split('|')[2] 
-                reply(pesan1, isi, pesan2)
+				pesann1 = arg.split('|')[1] 
+				pesann2 = arg.split('|')[2] 
+                reply(pesann1, isi, pesann2)
                 break
                  case 'linkgc':
 				    if (!isGroup) return reply(mess.only.group)
