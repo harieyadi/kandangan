@@ -472,13 +472,23 @@ client.on('group-participants-update', async (anu) => {
 						fs.unlinkSync(rano)
 					})
 					break
+					case 'play':
+			telss = body.slice(6)
+                data = await fetchJson(`https://api.zeks.xyz/api/ytplaymp3?q=${telss}&apikey=benbenz`, {method: 'get'})
+               if (data.error) return reply(data.error)
+                 playmp3 = `*Lagu Ditemukan!!!*\nJudul : ${data.result.title}\nSize : ${data.result.size}`
+                buffer = await getBuffer(data.result.thumbnail)
+                lagu = await getBuffer(data.result.url_audio)
+                client.sendMessage(from, buffer, image, {quoted: mek, caption: playmp3})
+                client.sendMessage(from, lagu, audio, {mimetype: 'audio/mp4', filename: `${data.result.title}.mp3`, quoted: mek})
+                break
 				case 'ytsearch':
 					if (args.length < 1) return reply('Yang mau di cari apaan? titit?')
-					anu = await fetchJson(`http://api.zeks.xyz/api/yts?q=${body.slice(10)}&apikey=apivinz`, {method: 'get'})
+					anu = await fetchJson(`https://arugaz.my.id/api/media/ytsearch?query=${body.slice(10)}`, {method: 'get'})
 					if (anu.error) return reply(anu.error)
 					teks = '=================\n'
 					for (let i of anu.result) {
-						teks += `*Title* : ${i.title}\n*Url* : ${i.url}\n*Id* : ${i.id}\n*Upload* : ${i.upload_date}\n*Duration* : ${i.duration}\n*Views* : ${h2k(i.views)}\n=================\n`
+						teks += `*Title* : ${i.title}\n*Id* : ${i.id}\n*Upload* : ${i.uploadDate}\n*Duration* : ${i.duration}\n*Views* : ${h2k(i.viewCount)}\n=================\n`
 					}
 					reply(teks.trim())
 					break
