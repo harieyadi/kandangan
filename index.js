@@ -1025,17 +1025,11 @@ case 'speed':
 					case 'jadian':
 
                     if (!isGroup) return reply(from, 'perintah ini hanya dapat digunakan di dalam grup', id)
-
                     const up = groupMembers
-
                     const aku = up[Math.floor(Math.random() * up.length)];
-
                     const kamu = up[Math.floor(Math.random() * up.length)];
-
                     const sapa = `Cieee... @${(/[@c.us]/g, '')} (💘) @${(/[@c.us]/g, '')} baru jadian nih\nBagi pj nya dong`
-
                     client.sendMessage(from, sapa)
-
                     break
 				case 'clearall':
 					if (!isOwner) return reply(mess.only.ownerB)
