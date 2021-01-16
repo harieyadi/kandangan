@@ -996,7 +996,6 @@ client.on('group-participants-update', async (anu) => {
 break
 case 'speed':
                 case 'ping':
-                if (!isPublic) return reply(mess.only.public)
                     const timestamp = speed();
                     const latensi = speed() - timestamp
                     client.updatePresence(from, Presence.composing) 
