@@ -451,11 +451,11 @@ client.on('group-participants-update', async (anu) => {
 					if(!isUrl(args[0]) && !args[0].includes('youtu')) return reply(mess.error.Iv)
 					anu = await fetchJson(`http://api.zeks.xyz/api/ytmp3?url=${args[0]}8&apikey=apivinz`, {method: 'get'})
 					if (anu.error) return reply(anu.error)
-					teks = `*Title* : ${anu.result.title}\n*Filesize* : ${anu.result.size}`
-					thumb = await getBuffer(anu.result.thumbnail)
-					client.sendMessage(from, thumb, image, {quoted: mek, caption: teks})
-					buffer = await getBuffer(anu.result.url_audio)
-					client.sendMessage(from, buffer, audio, {mimetype: 'audio/mp4', filename: `${anu.result.title}.mp3`, quoted: mek})
+					teksmp3 = `*Title* : ${anu.result.title}\n*Filesize* : ${anu.result.size}`
+					buffers = await getBuffer(anu.result.thumbnail)
+					lagump3 = await getBuffer(anu.result.url_audio)
+					client.sendMessage(from, buffers, image, {quoted: mek, caption: teksmp3})
+					client.sendMessage(from, lagump3, audio, {mimetype: 'audio/mp4', filename: `${anu.result.title}.mp3`, quoted: mek})
 					break
 					case 'ttp':
 				case 'tsticker':
