@@ -540,6 +540,13 @@ client.on('group-participants-update', async (anu) => {
                                         buffer = await getBuffer(anu.result)
                                         client.sendMessage(from, buffer, image, {quoted: mek})
                                         break
+					case 'rmeme':
+					gatauda = body.slice(13)
+					reply(mess.wait)
+					anu = await fetchJson(`http://api.zeks.xyz/api/darkjokes?apikey=apivinz`, {method: 'get'})
+					buffer = await getBuffer(anu.result)
+					client.sendMessage(from, buffer, image, {quoted: mek})
+					break
 					case 'pinterest':
 					client.updatePresence(from, Presence.composing) 
 					data = await fetchJson(`https://api.fdci.se/rep.php?gambar=${body.slice(11)}`, {method: 'get'})
