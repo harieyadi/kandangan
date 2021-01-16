@@ -998,12 +998,23 @@ client.on('group-participants-update', async (anu) => {
 				case 'fitnah':	
 				case 'fake':          
                if (!isGroup) return reply(mess.only.group)
-                arg = body.substring(body.indexOf(' ') + 1)
-				isi = arg.split(' |')[0] 
-				pesann1 = arg.split('|')[1] 
-				pesann2 = arg.split('|')[2] 
-                reply(pesann1, isi, pesann2)
-                break
+                if (args.length < 1) return reply(`Usage :\n${prefix}fitnah [@tag|pesan|balasanbot]]\n\nEx : \n${prefix}fitnah @tagmember|hai|hai juga`)
+				var gh = body.slice(8)
+				mentioned = mek.message.extendedTextMessage.contextInfo.mentionedJid
+					var replace = gh.split("|")[0];
+					var targetoh = gh.split("|")[1];
+					var botoh = gh.split("|")[2];
+					client.sendMessage(from, `${botoh}`, text, {quoted: { key: { fromMe: false, participant: `${mentioned}`, ...(from ? { remoteJid: from } : {}) }, message: { conversation: `${targetoh}`}}})
+break
+case 'speed':
+                case 'ping':
+                if (!isPublic) return reply(mess.only.public)
+                    const timestamp = speed();
+                    const latensi = speed() - timestamp
+                    client.updatePresence(from, Presence.composing) 
+				uptime = process.uptime()
+                    client.sendMessage(from, `Speed: *${latensi.toFixed(4)} _Second_*\nDevice: *HP ODONG-ODONG*\nRAM: *1/2*\nData: *WIFI TEMEN*\nJaringan: *8G*\nStatus: *TIDAK PERNAH KEHABISAN BATRE*\nBot Type: *BOT MANUAL*\n\n*Bot Telah Aktif Selama*\n*${kyun(uptime)}*`, text, { quoted: mek})
+					break
                  case 'linkgc':
 				    if (!isGroup) return reply(mess.only.group)
 				    if (!isBotGroupAdmins) return reply(mess.only.Badmin)
@@ -1023,6 +1034,21 @@ client.on('group-participants-update', async (anu) => {
 					}
 					mentions(teks, members_id, true)
 					break
+					case 'jadian':
+
+                    if (!isGroup) return reply(from, 'perintah ini hanya dapat digunakan di dalam grup', id)
+
+                    const up = groupMembers
+
+                    const aku = up[Math.floor(Math.random() * up.length)];
+
+                    const kamu = up[Math.floor(Math.random() * up.length)];
+
+                    const sapa = `Cieee... @${(/[@c.us]/g, '')} (💘) @${(/[@c.us]/g, '')} baru jadian nih\nBagi pj nya dong`
+
+                    client.sendMessage(from, sapa)
+
+                    break
 				case 'clearall':
 					if (!isOwner) return reply(mess.only.ownerB)
 					anu = await client.chats.all()
