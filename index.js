@@ -369,18 +369,6 @@ client.on('group-participants-update', async (anu) => {
 					client.sendMessage(from, anu.result.soal, text, { quoted: mek }) // ur cods
 					}, 0) // 1000 = 1s,
 					break
-          case 'speed':
-          case 'ping':
-            await client.sendMessage(from, `Pong!!!\nSpeed: ${processTime(time, moment())} _Second_`)
-            break
-               case 'help': 
-				case 'menu':
-					client.sendMessage(from, help(prefix), text)
-					break
-				case 'donasi':
-				case 'donate':
-					client.sendMessage(from, donasi(), text)
-				break
                 case 'level':
                 if (!isLevelingOn) return reply(mess.levelnoton)
                 if (!isGroup) return reply(mess.only.group)
