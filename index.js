@@ -449,7 +449,7 @@ client.on('group-participants-update', async (anu) => {
 					case 'yt2mp3':
 					if (args.length < 1) return reply('Urlnya mana um?')
 					if(!isUrl(args[0]) && !args[0].includes('youtu')) return reply(mess.error.Iv)
-					anu = await fetchJson(`https://tobz-api.herokuapp.com/api/yta?url=${args[0]}&apiKey=BotWeA`, {method: 'get'})
+					anu = await fetchJson(`http://arugaz.my.id/api/media/ytaudio?url=${args[0]}`, {method: 'get'})
 					if (anu.error) return reply(anu.error)
 					teks = `*Title* : ${anu.title}\n*Filesize* : ${anu.filesizeF}`
 					thumb = await getBuffer(anu.thumb)
@@ -477,8 +477,10 @@ client.on('group-participants-update', async (anu) => {
 					anu = await fetchJson(`https://arugaz.my.id/api/media/ytsearch?query=${body.slice(10)}`, {method: 'get'})
 					if (anu.error) return reply(anu.error)
 					teks = '=================\n'
+					thumb = await getBuffer(anu.thumbnail)
+					client.sendMessage(from, thumb, image, {quoted: mek, caption: teks})
 					for (let i of anu.result) {
-						teks += `*Title* : ${i.title}\n*Id* : ${i.id}\n*Upload* : ${i.uploadDate}\n*Duration* : ${i.duration}\n*Views* : ${h2k(i.viewCount)}\n=================\n`
+						teks += `*Title* : ${i.title}\n*Url* : ${i.url}\n*Id* : ${i.id}\n*Upload* : ${i.uploadDate}\n*Duration* : ${i.duration}\n*Views* : ${h2k(i.viewCount)}\n=================\n`
 					}
 					reply(teks.trim())
 					break
